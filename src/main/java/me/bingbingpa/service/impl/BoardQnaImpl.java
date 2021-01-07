@@ -5,6 +5,7 @@ import me.bingbingpa.persistence.BoardMapper;
 import me.bingbingpa.persistence.BoardQnaMapper;
 import me.bingbingpa.service.BoardService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("boardQnaService")
 public class BoardQnaImpl extends BoardService<BoardQna, Integer> {
@@ -16,6 +17,7 @@ public class BoardQnaImpl extends BoardService<BoardQna, Integer> {
         this.boardQnaMapper = (BoardQnaMapper) boardQnaMapper;
     }
 
+    @Transactional
     public void addAnswer(BoardQna boardQna) {
         boardQnaMapper.addAnswer(boardQna);
     }

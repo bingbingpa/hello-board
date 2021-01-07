@@ -5,6 +5,7 @@ import me.bingbingpa.persistence.BoardFreeMapper;
 import me.bingbingpa.persistence.BoardMapper;
 import me.bingbingpa.service.BoardService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("boardFreeService")
 public class BoardFreeImpl extends BoardService<BoardFree, Long> {
@@ -16,6 +17,7 @@ public class BoardFreeImpl extends BoardService<BoardFree, Long> {
         this.boardFreeMapper = (BoardFreeMapper) boardFreeMapper;
     }
 
+    @Transactional
     public void saveComment(BoardFree boardFree) {
         boardFreeMapper.saveComment(boardFree);
     }
