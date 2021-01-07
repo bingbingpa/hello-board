@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.bingbingpa.persistence.BoardFreeMapper">
+
+	<!-- 이슈 총 건수 -->
+	<select id="findAll" resultType="boardFree">
+		/* "findAll" */
+		SELECT * FROM board_free
+	</select>
+
+	<select id="findById" resultType="boardFree">
+		/* "findById" */
+		SELECT * FROM board_free WHERe board_free_id = #{boardFreeId}
+	</select>
+
+	<insert id="save">
+		/* "save" */
+		<selectKey keyProperty="boardFreeId" resultType="long" order="BEFORE">
+			SELECT NEXTVAL('board_free_seq')
+		</selectKey>
+		INSERT INTO board_free (board_free_id) VALUES(#{boardFreeId})
+	</insert>
+
+	<update id="update">
+		/* "update" */
+		SELECT * FROM board
+	</update>
+
+	<delete id="deleteById">
+		/* "update" */
+		SELECT * FROM board
+	</delete>
+</mapper>
